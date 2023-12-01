@@ -20,7 +20,6 @@ function contains(str: string) {
 
 const buffer = await fs.readFile('./src/input.txt', 'utf-8');
 const file = buffer.split('\n');
-const numbers = '123456789';
 const numHash = {
   one: '1',
   two: '2',
@@ -43,7 +42,7 @@ file.forEach((string) => {
   numString = '';
 
   string.split('').forEach((char) => {
-    if (numbers.includes(char)) {
+    if ('123456789'.includes(char)) {
       finalString += char;
       numString = '';
     } else {
