@@ -1,40 +1,24 @@
 import fs from 'fs/promises';
 
-interface hash {
-  [index: string]: string;
-}
+const buffer = await fs.readFile('./src/day-one/input.txt', 'utf-8');
+const file = buffer.split('\n');
 
 function contains(str: string) {
-  if (str.includes('one')) return 'one';
-  if (str.includes('two')) return 'two';
-  if (str.includes('three')) return 'three';
-  if (str.includes('four')) return 'four';
-  if (str.includes('five')) return 'five';
-  if (str.includes('six')) return 'six';
-  if (str.includes('seven')) return 'seven';
-  if (str.includes('eight')) return 'eight';
-  if (str.includes('nine')) return 'nine';
+  if (str.includes('one')) return '1';
+  if (str.includes('two')) return '2';
+  if (str.includes('three')) return '3';
+  if (str.includes('four')) return '4';
+  if (str.includes('five')) return '5';
+  if (str.includes('six')) return '6';
+  if (str.includes('seven')) return '7';
+  if (str.includes('eight')) return '8';
+  if (str.includes('nine')) return '9';
 
   return '';
 }
 
-const buffer = await fs.readFile('./src/input.txt', 'utf-8');
-const file = buffer.split('\n');
-const numHash = {
-  one: '1',
-  two: '2',
-  three: '3',
-  four: '4',
-  five: '5',
-  six: '6',
-  seven: '7',
-  eight: '8',
-  nine: '9',
-} as hash;
-
 let finalString = '';
 let numString = '';
-
 const list: string[] = [];
 
 file.forEach((string) => {
@@ -48,7 +32,7 @@ file.forEach((string) => {
     } else {
       numString += char;
       if (contains(numString) !== '') {
-        finalString += numHash[contains(numString)];
+        finalString += contains(numString);
         numString = '';
       }
     }
