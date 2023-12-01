@@ -31,8 +31,9 @@ file.forEach((string) => {
       numString = '';
     } else {
       numString += char;
-      if (contains(numString) !== '') {
-        finalString += contains(numString);
+      const contain = contains(numString);
+      if (contain !== '') {
+        finalString += contain;
         numString = '';
       }
     }
