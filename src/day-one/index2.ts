@@ -3,7 +3,7 @@ import fs from 'fs/promises';
 const buffer = await fs.readFile('./src/day-one/input.txt', 'utf-8');
 const file = buffer.split('\n');
 
-function contains(str: string) {
+function contains(str: string): string {
   if (str.includes('one')) return '1';
   if (str.includes('two')) return '2';
   if (str.includes('three')) return '3';
