@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 
-const buffer = await fs.readFile('./src/input.txt', 'utf-8');
+const buffer = await fs.readFile('./src/day-one/input.txt', 'utf-8');
 const file = buffer.split('\n');
 const numbers = file
   .map((e) => e.replace(/\D/g, ''))
