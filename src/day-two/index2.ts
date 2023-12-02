@@ -48,9 +48,6 @@ file.forEach((e) => {
   games.set(game, rounds);
 });
 
-const red = 12;
-const green = 13;
-const blue = 14;
 interface IColors {
   [index: string]: number;
 }
