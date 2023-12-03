@@ -12,9 +12,9 @@ file.forEach((e) => {
   matrix.push(line);
 });
 
-for (let index = 0; index < matrix.length; index++) {
-  console.log(matrix[index]);
-}
+// for (let index = 0; index < matrix.length; index++) {
+//   console.log(matrix[index]);
+// }
 
 function isNumber(str: string) {
   const num = Number(str);
@@ -41,40 +41,44 @@ function lineIterator(line: string[], index: number) {
 for (let i = 0; i < matrix.length; i++) {
   for (let j = 0; j < matrix[i].length; j++) {
     if (!isNumber(matrix[i][j]) && matrix[i][j] !== '.' && !/^[a-zA-Z]+$/.test(matrix[i][j])) {
-      if (matrix[i - 1][j - 1] !== null && isNumber(matrix[i - 1][j - 1])) {
-        lineIterator(matrix[i - 1], j - 1);
+      if (i - 1 >= 0) {
+        if (isNumber(matrix[i - 1][j - 1])) {
+          lineIterator(matrix[i - 1], j - 1);
+        }
+
+        if (isNumber(matrix[i - 1][j])) {
+          lineIterator(matrix[i - 1], j);
+        }
+
+        if (isNumber(matrix[i - 1][j + 1])) {
+          lineIterator(matrix[i - 1], j + 1);
+        }
       }
 
-      if (matrix[i - 1][j] !== null && isNumber(matrix[i - 1][j])) {
-        lineIterator(matrix[i - 1], j);
-      }
-
-      if (matrix[i - 1][j + 1] !== null && isNumber(matrix[i - 1][j + 1])) {
-        lineIterator(matrix[i - 1], j + 1);
-      }
-
-      if (matrix[i][j - 1] !== null && isNumber(matrix[i][j - 1])) {
+      if (isNumber(matrix[i][j - 1])) {
         lineIterator(matrix[i], j - 1);
       }
 
-      if (matrix[i][j + 1] !== null && isNumber(matrix[i][j + 1])) {
+      if (isNumber(matrix[i][j + 1])) {
         lineIterator(matrix[i], j + 1);
       }
 
-      if (matrix[i + 1][j - 1] !== null && isNumber(matrix[i + 1][j - 1])) {
-        lineIterator(matrix[i + 1], j - 1);
-      }
+      if (i + 1 < matrix.length) {
+        if (isNumber(matrix[i + 1][j - 1])) {
+          lineIterator(matrix[i + 1], j - 1);
+        }
 
-      if (matrix[i + 1][j] !== null && isNumber(matrix[i + 1][j])) {
-        lineIterator(matrix[i + 1], j);
-      }
+        if (isNumber(matrix[i + 1][j])) {
+          lineIterator(matrix[i + 1], j);
+        }
 
-      if (matrix[i + 1][j + 1] !== null && isNumber(matrix[i + 1][j + 1])) {
-        lineIterator(matrix[i + 1], j + 1);
+        if (isNumber(matrix[i + 1][j + 1])) {
+          lineIterator(matrix[i + 1], j + 1);
+        }
       }
     }
   }
 }
 
-console.log(validNumber);
+// console.log(validNumber);
 console.log(validNumber.reduce((a, b) => Number(a) + Number(b), 0));
