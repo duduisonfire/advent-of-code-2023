@@ -22,8 +22,8 @@ buffer.forEach((card) => {
 
 cards.forEach((card) => {
 	const parsedCard = card.split('|');
-	const myNumbers = parsedCard[1].split(' ');
 	const victoryNumber = parsedCard[0].split(' ');
+	const myNumbers = parsedCard[1].split(' ');
 
 	let count = 0;
 	console.log(victoryNumber);
