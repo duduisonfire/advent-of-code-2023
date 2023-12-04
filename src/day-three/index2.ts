@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 
-const file = (await fs.readFile('./src/day-three/input.txt', 'utf-8')).split('\n');
+const file = (await fs.readFile('./src/day-three/input2.txt', 'utf-8')).split('\n');
 const matrix: string[][] = [];
 
 file.forEach((e) => {
